@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YA Blacklist</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="w-72 p-4">
+    <h1 class="text-lg font-bold mb-3">Seller Blacklist</h1>
+
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-sm">有効</span>
+      <input
+        type="checkbox"
+        id="toggle-enabled"
+        class="toggle toggle-primary"
+        checked
+      />
+    </div>
+
+    <div class="stats shadow w-full mb-3">
+      <div class="stat py-2 px-3">
+        <div class="stat-title text-xs">登録数</div>
+        <div class="stat-value text-xl" id="blacklist-count">0</div>
+      </div>
+      <div class="stat py-2 px-3">
+        <div class="stat-title text-xs">非表示</div>
+        <div class="stat-value text-xl" id="hidden-count">-</div>
+      </div>
+    </div>
+
+    <a
+      id="open-options"
+      class="btn btn-primary btn-sm btn-block"
+      href="#"
+    >
+      設定を開く
+    </a>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
