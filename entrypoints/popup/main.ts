@@ -1,4 +1,4 @@
-import { getBlacklist, getEnabled, setEnabled } from "../lib/storage";
+import { getBlacklist, getEnabled, setEnabled } from "~/utils/storage";
 
 const blacklistCountEl = document.getElementById(
   "blacklist-count",

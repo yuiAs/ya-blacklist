@@ -1,11 +1,11 @@
 # Yahoo! Auction Seller Blacklist
 
-Yahoo! オークションの検索結果・一覧ページで、指定した出品者（セラー）の商品を非表示にする Chrome 拡張機能。
+Yahoo! オークションの検索結果ページで、指定した出品者（セラー）の商品を非表示にする Chrome 拡張機能。
 
 ## 技術スタック
 
 - TypeScript (strict)
-- Vite + @crxjs/vite-plugin (Manifest V3)
+- [WXT](https://wxt.dev/) (Manifest V3)
 - Tailwind CSS + DaisyUI
 - chrome.storage.sync
 
@@ -27,9 +27,12 @@ npm run build
 
 # 開発モード（HMR 有効）
 npm run dev
+
+# ZIP パッケージ作成
+npm run zip
 ```
 
-ビルド成果物は `dist/` ディレクトリに出力される。
+ビルド成果物は `.output/chrome-mv3/` ディレクトリに出力される。
 
 ## 利用方法
 
@@ -39,7 +42,7 @@ npm run dev
 2. Chrome で `chrome://extensions` を開く
 3. 右上の「デベロッパーモード」を有効にする
 4. 「パッケージ化されていない拡張機能を読み込む」をクリック
-5. `dist` フォルダを選択
+5. `.output/chrome-mv3` フォルダを選択
 
 ### ブラックリストの設定
 

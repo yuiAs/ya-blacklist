@@ -1,4 +1,4 @@
-import { getBlacklist, setBlacklist, isValidSellerId } from "../lib/storage";
+import { getBlacklist, setBlacklist, isValidSellerId } from "~/utils/storage";
 
 const textareaEl = document.getElementById(
   "blacklist-input",

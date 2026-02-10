@@ -140,6 +140,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
+# WXT
+.wxt/
+
 # Claude Code
 .claude/plans/
 .claude/settings.local.json
