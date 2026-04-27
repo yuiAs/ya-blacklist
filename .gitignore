@@ -146,4 +146,6 @@ vite.config.ts.timestamp-*
 # Claude Code
 .claude/plans/
 .claude/settings.local.json
+
+# Development
 docs/dev/*
