@@ -6,11 +6,18 @@ import {
 import { getBlacklist, getEnabled, onStorageChanged } from "~/utils/storage";
 
 export default defineContentScript({
-  matches: ["*://auctions.yahoo.co.jp/search/*"],
+  matches: ["*://auctions.yahoo.co.jp/*"],
   main() {
     let blacklistSet = new Set<string>();
     let enabled = true;
     let hiddenCount = 0;
+
+    // Skip on pages that never contain product list cards (e.g. item detail).
+    // Cheaper than running a MutationObserver for nothing.
+    const shouldActivate = (): boolean => {
+      if (location.pathname.startsWith("/jp/auction/")) return false;
+      return document.querySelector(SELLER_ATTR_SELECTOR) !== null;
+    };
 
     const hideProducts = (): void => {
       hiddenCount = 0;
@@ -62,13 +69,17 @@ export default defineContentScript({
       });
     };
 
-    // Respond to popup queries for hidden count
+    // Respond to popup queries for hidden count.
+    // Kept outside the activation guard so the popup gets a deterministic 0
+    // even on non-list pages instead of "no response".
     chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       if (message.type === "getHiddenCount") {
         sendResponse({ count: hiddenCount });
       }
     });
 
-    init();
+    if (shouldActivate()) {
+      init();
+    }
   },
 });
